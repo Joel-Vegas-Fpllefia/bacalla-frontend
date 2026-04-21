@@ -31,11 +31,11 @@ export default async function HomePage() {
           <span className="text-xl">+</span> Afegir nova varietat
         </Link>
       </header>
-
+      {/* JOEL VEGAS ROMERO  */}
       {/* REJILLA DE TARJETAS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {variedades.length > 0 ? (
-          variedades.map((item) => (
+          variedades.map((item: any) => (
             <article
               key={item._id}
               className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow flex flex-col justify-between"
