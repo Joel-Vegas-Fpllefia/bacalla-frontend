@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Si necesitas alguna configuración de fuentes o variables, van debajo */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Las clases personalizadas de Tailwind v4 se detectan automáticamente 
+   en todos los archivos de tu proyecto sin configurar el 'content' */
