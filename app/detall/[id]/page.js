@@ -55,9 +55,6 @@ export default async function DetallPage({ params }) {
                 ID: {item._id || id}
               </p>
             </div>
-            <button onClick={handleDelete} className="bg-red-100 text-red-600">
-              Eliminiar
-            </button>
           </div>
         </div>
       </div>
