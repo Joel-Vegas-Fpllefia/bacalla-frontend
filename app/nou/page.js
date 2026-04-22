@@ -57,9 +57,9 @@ export default function Noumascotas() {
           required
         >
           <option value="">Selecciona tipus...</option>
-          <option value="Salat">Perro</option>
-          <option value="Fresc">Gato</option>
-          <option value="Esqueixat">Otro</option>
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+          <option value="otro">Otro</option>
         </select>
         <input
           className="w-full p-3 border rounded-lg outline-none"
