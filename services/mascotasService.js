@@ -24,4 +24,25 @@ export const mascotasService = {
     });
     return res;
   },
+
+  // DELETE
+  async delete(id) {
+    const res = await fetch(`${API_URL}/mascotas/${id}`, {
+      method: "DELETE",
+    });
+
+    return res.ok;
+  },
+
+  //UPDATE
+
+  async update(id, data) {
+    const res = await fetch(`${API_URL}/mascotas/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    return res.ok;
+  },
 };

@@ -14,6 +14,15 @@ export default async function DetallPage({ params }) {
     notFound();
   }
 
+  const handleDelete = async () => {
+    if (confirm("¿Seguro que lo quieres eliminiar?")) {
+      const ok = await mascotasService.delete(item._id);
+
+      if (ok) {
+        router.push("/");
+      }
+    }
+  };
   // Manejo de la estructura de tu API (dades)
   const item = response.dades ? response.dades : response;
 
@@ -46,6 +55,9 @@ export default async function DetallPage({ params }) {
                 ID: {item._id || id}
               </p>
             </div>
+            <button onClick={handleDelete} className="bg-red-100 text-red-600">
+              Eliminiar
+            </button>
           </div>
         </div>
       </div>
