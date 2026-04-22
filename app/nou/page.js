@@ -1,16 +1,16 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { bacallaService } from "@/services/bacallaService";
+import { mascotasService } from "@/services/mascotasService";
 
-export default function NouBacalla() {
+export default function Noumascotas() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     nom: "",
-    origen: "",
     tipus: "",
-    descripcio: "",
+    raza: "",
+    foto: "",
   });
 
   const handleSubmit = async (e) => {
@@ -18,7 +18,7 @@ export default function NouBacalla() {
     setLoading(true);
 
     try {
-      const res = await bacallaService.create(form);
+      const res = await mascotasService.create(form);
 
       if (res.ok) {
         // 1. Volvemos a la home
@@ -41,15 +41,15 @@ export default function NouBacalla() {
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-          placeholder="Nom del bacallà"
+          placeholder="Nom del Animal"
           required
           onChange={(e) => setForm({ ...form, nom: e.target.value })}
         />
         <input
           className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-          placeholder="Origen (ex: Islandia)"
+          placeholder="Raza"
           required
-          onChange={(e) => setForm({ ...form, origen: e.target.value })}
+          onChange={(e) => setForm({ ...form, raza: e.target.value })}
         />
         <select
           className="w-full p-3 border rounded-lg outline-none"
@@ -57,17 +57,15 @@ export default function NouBacalla() {
           required
         >
           <option value="">Selecciona tipus...</option>
-          <option value="Salat">Salat</option>
-          <option value="Fresc">Fresc</option>
-          <option value="Esqueixat">Esqueixat</option>
+          <option value="Salat">Perro</option>
+          <option value="Fresc">Gato</option>
+          <option value="Esqueixat">Otro</option>
         </select>
-        <textarea
+        <input
           className="w-full p-3 border rounded-lg outline-none"
-          placeholder="Descripció breu"
-          rows="3"
-          required
-          onChange={(e) => setForm({ ...form, descripcio: e.target.value })}
-        ></textarea>
+          placeholder="Imatge Animal"
+          onChange={(e) => setForm({ ...form, foto: e.target.value })}
+        ></input>
 
         <button
           disabled={loading}

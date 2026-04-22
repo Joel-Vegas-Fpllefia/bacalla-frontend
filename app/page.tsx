@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { bacallaService } from "@/services/bacallaService";
+import { mascotasService } from "@/services/mascotasService";
 
 export default async function HomePage() {
   let variedades = [];
 
   try {
-    const response = await bacallaService.getAll();
+    const response = await mascotasService.getAll();
     // Accedemos a 'dades' según el formato de tu API
     variedades =
       response && Array.isArray(response.dades) ? response.dades : [];
@@ -19,7 +19,7 @@ export default async function HomePage() {
       <header className="flex flex-col md:flex-row justify-between items-center mb-12 border-b pb-6 gap-4">
         <div>
           <h1 className="text-4xl font-black text-blue-900 tracking-tight">
-            Bacallà App 🐟
+            MASCOTAS App 🐟
           </h1>
           <p className="text-gray-500">Gestió de varietats i presentacions</p>
         </div>
@@ -50,13 +50,14 @@ export default async function HomePage() {
                   {item.nom}
                 </h2>
                 <p className="text-gray-600 text-sm mb-6 line-clamp-3">
-                  {item.descripcio}
+                  {item.raza}
                 </p>
+                <img src={item.foto} alt="" />
               </div>
 
               <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-50">
                 <span className="text-sm text-gray-400 font-medium">
-                  📍 {item.origen}
+                  📍 {item.raza}
                 </span>
                 <Link
                   href={`/detall/${item._id}`}

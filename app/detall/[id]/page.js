@@ -1,4 +1,4 @@
-import { bacallaService } from "@/services/bacallaService";
+import { mascotasService } from "@/services/mascotasService";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ export default async function DetallPage({ params }) {
   const id = resolvedParams.id;
 
   // 2. Llamamos a tu API
-  const response = await bacallaService.getById(id);
+  const response = await mascotasService.getById(id);
 
   if (!response) {
     notFound();
@@ -35,12 +35,12 @@ export default async function DetallPage({ params }) {
           <div className="p-8">
             <div className="flex gap-2 mb-6">
               <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-bold">
-                📍 {item.origen}
+                📍 {item.tipus}
               </span>
             </div>
 
-            <p className="text-gray-700 text-lg mb-8">{item.descripcio}</p>
-
+            <p className="text-gray-700 text-lg mb-8">{item.raza}</p>
+            <img src={item.foto}></img>
             <div className="border-t pt-4">
               <p className="text-xs text-gray-400 font-mono">
                 ID: {item._id || id}
